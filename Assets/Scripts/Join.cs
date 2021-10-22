@@ -9,20 +9,28 @@ public class Join : MonoBehaviour
 {
     public TextMeshProUGUI IPtext;
     public string IP;
-
-    void Update()
+    private void Awake()
     {
-        //Debug.Log(IPtext.text);
-        if (Input.GetKeyDown(KeyCode.H))
+
+        string data = SceeneData.HostOrJoin;
+        Debug.Log(data);
+        if(data != null)
+        {
+            UNetTransport unet = NetworkManager.Singleton.GetComponent<UNetTransport>();
+            unet.ConnectAddress = data;
+            NetworkManager.Singleton.StartClient();
+        }
+        else
         {
             NetworkManager.Singleton.StartHost();
         }
-        else if (Input.GetKeyDown(KeyCode.J))
-        {
-            UNetTransport unet = NetworkManager.Singleton.GetComponent<UNetTransport>();
-            unet.ConnectAddress = IP;
-            NetworkManager.Singleton.StartClient();
-        }
+        
+    }
+    void Update()
+    {
+        
+        
+        
     }
 
     public void IPChanged(string newIP)
