@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public GameObject WinCanvas;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public GameObject winMenuUi;
+    public GameObject looseMenuUi;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        WinCanvas.SetActive(true);
+        if (!collision.gameObject.CompareTag("Player")) return;
+        if (looseMenuUi.activeSelf) return;
+        if (winMenuUi.activeSelf) return;
+        SoundManager.PlaySound("door");
+        winMenuUi.SetActive(true);
     }
 }

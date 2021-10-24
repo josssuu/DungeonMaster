@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe519806be0c7cd4cbd85b1426f39294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  looseMenuUi: {fileID: 0}
+  winMenuUi: {fileID: 0}
 --- !u!58 &-2300096626329158385
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +131,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

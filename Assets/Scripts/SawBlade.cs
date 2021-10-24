@@ -1,21 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SawBlade : MonoBehaviour
 {
+    public GameObject looseMenuUi;
+    public GameObject winMenuUi;
+
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < -13)
+        if (transform.position.y < -13)
         {
+            SoundManager.PlaySound("sawBlade");
             transform.position = new Vector3(transform.position.x, 13f);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (!collision.gameObject.CompareTag("Player")) return;
+        if (looseMenuUi.activeSelf) return;
+        if (winMenuUi.activeSelf) return;
+        SoundManager.PlaySound("playerHit");
+        looseMenuUi.SetActive(true);
     }
 }
