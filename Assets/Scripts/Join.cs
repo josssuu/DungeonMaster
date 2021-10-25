@@ -9,11 +9,13 @@ public class Join : MonoBehaviour
 {
     public TextMeshProUGUI IPtext;
     public string IP;
+    /*
     private void Awake()
     {
 
         string data = SceeneData.HostOrJoin;
         Debug.Log(data);
+        Debug.Log("EELMINE");
         if(data != null)
         {
             UNetTransport unet = NetworkManager.Singleton.GetComponent<UNetTransport>();
@@ -26,6 +28,7 @@ public class Join : MonoBehaviour
         }
         
     }
+    */
     void Update()
     {
         
