@@ -10,16 +10,19 @@ using UnityEngine.UI;
 using MLAPI.Messaging;
 using MLAPI.SceneManagement;
 using UnityEngine.SceneManagement;
+using MLAPI.Spawning;
 
 public class LobbyUI : NetworkBehaviour
 {
-    public TextMeshProUGUI PlayerInfoPrefab;
+    public GameObject PlayerInfoPrefab;
+    public GameObject PlayerListPanel; 
     public Button StartButton;
 
     private NetworkList<LobbyPlayer> lobbyPlayers = new NetworkList<LobbyPlayer>();
 
     public override void NetworkStart()
     {
+        print(GetComponent<NetworkObject>().IsSpawned);
         if (IsClient)
         {
             lobbyPlayers.OnListChanged += HandleLobbyPlayerStateChanged;
@@ -52,7 +55,9 @@ public class LobbyUI : NetworkBehaviour
 
     private void HandleClientConnected(ulong clientID)
     {
-        LobbyPlayer player = new LobbyPlayer(clientID);
+        GameObject display = Instantiate(PlayerInfoPrefab, PlayerListPanel.transform);
+        display.GetComponent<NetworkObject>().SpawnWithOwnership(clientID);
+        LobbyPlayer player = new LobbyPlayer(clientID, display);
         lobbyPlayers.Add(player);
     }
 
@@ -104,17 +109,42 @@ public class LobbyUI : NetworkBehaviour
 
     private void HandleLobbyPlayerStateChanged(NetworkListEvent<LobbyPlayer> changeEvent)
     {
-        for (int i = 0; i < lobbyPlayers.Count; i++)
+        print("HandleLobbyPlayerStateChanged");
+        for (int i = 0; i < NetworkManager.Singleton.ConnectedClientsList.Count; i++)
         {
             LobbyPlayer player = lobbyPlayers[i];
             if (lobbyPlayers.Count > i)
             {
                 player.UpdateDisplay(player);
+                UpdateDisplayClientRpc(player);
+                //ReparentClientRpc(player);
+                //AddClientInfoDisplayServerRpc(player);
             }
             else
             {
+
                 player.DisableDisplay();
+                //RemoveClientInfoDisplayServerRpc(player.ClientID);
             }
         }
+    }
+    
+    [ServerRpc]
+    private void AddClientInfoDisplayServerRpc(LobbyPlayer player)
+    {
+        player.UpdateDisplay(player);
+    }
+
+    [ServerRpc]
+    private void RemoveClientInfoDisplayServerRpc(ulong clientID)
+    {
+        Events.DestroyPlayerInfoDisplay(clientID);
+        print("Remove");
+    }
+
+    [ClientRpc]
+    private void UpdateDisplayClientRpc(LobbyPlayer player)
+    {
+        GameObject display = Instantiate(PlayerInfoPrefab, PlayerListPanel.transform);
     }
 }

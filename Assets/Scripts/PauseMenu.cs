@@ -1,3 +1,4 @@
+using MLAPI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,7 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
 
         {
-            if (MenuOpen)
+            if (MenuOpen)   // BUG Ei tohiks saada avada kui mäng on läbi
             {
                 Resume();
             }
@@ -29,18 +30,19 @@ public class PauseMenu : MonoBehaviour
         MenuOpen = false;
     }
 
-    public void Pause()
+    public void Pause() // BUG ei pane mängu pausile
     {
         pauseMenuUi.SetActive(true);
         MenuOpen = true;
     }
 
-    public void LoadMenu()
+    public void LoadMenu()  // TODO Dubleerib klassi WinMenu ja LooseMenu meetodit
     {
+        NetworkManager.Singleton.StopHost();    // TODO Kui on host, siis peaks clientid droppima ja sealt edasi clienti menüüsse edasi suunama
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    public void QuitGame()
+    public void QuitGame()  // TODO Dubleerib klassi WinMenu ja LooseMenu meetodit
     {
         Debug.Log("QUIT!");
         Application.Quit();

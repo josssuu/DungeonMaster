@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: todo
   m_EditorClassIdentifier: 
   Entries:
+  - Text: " Visuaalselt vaja n\uFFFDidata m\uFFFDngijat listis\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayer.cs"
+    Line: 23
+    PathToShow: Assets/Scripts/Data/LobbyPlayer.cs(23)
+  - Text: " Eemaldada m\uFFFDngija listis\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayer.cs"
+    Line: 29
+    PathToShow: Assets/Scripts/Data/LobbyPlayer.cs(29)
   - Text: " katki \r"
     Note: 
     Tag: BUG
