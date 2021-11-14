@@ -79,7 +79,7 @@ public class LobbyUI : NetworkBehaviour
     {
         if (IsHost)
         {
-            for (int i = 0; i < NetworkManager.Singleton.ConnectedClientsList.Count; i++) // Katki 
+            for (int i = 0; i < NetworkManager.Singleton.ConnectedClientsList.Count; i++) // BUG katki 
             {
                 NetworkClient client = NetworkManager.Singleton.ConnectedClientsList[i];
                 NetworkManager.Singleton.DisconnectClient(client.ClientId);
