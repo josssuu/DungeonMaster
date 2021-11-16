@@ -14,7 +14,7 @@ public class PlayerList : NetworkBehaviour
     public TextMeshProUGUI PlayerInfoPrefab;
     private NetworkManager networkManager;
 
-    private NetworkList<LobbyPlayer> lobbyPlayers = new NetworkList<LobbyPlayer>();
+    private NetworkList<LobbyPlayerData> lobbyPlayers = new NetworkList<LobbyPlayerData>();
     private void Awake()
     {
         networkManager = NetworkManager.Singleton;
@@ -41,7 +41,7 @@ public class PlayerList : NetworkBehaviour
         }
     }
 
-    private void HandleLobbyPlayerStateChanged(NetworkListEvent<LobbyPlayer> changeEvent)
+    private void HandleLobbyPlayerStateChanged(NetworkListEvent<LobbyPlayerData> changeEvent)
     {
         throw new NotImplementedException();
     }

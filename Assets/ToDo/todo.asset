@@ -13,24 +13,105 @@ MonoBehaviour:
   m_Name: todo
   m_EditorClassIdentifier: 
   Entries:
-  - Text: " Visuaalselt vaja n\uFFFDidata m\uFFFDngijat listis\r"
+  - Text: " Dubleerib WinMenu classi\r"
     Note: 
     Tag: TODO
-    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayer.cs"
-    Line: 23
-    PathToShow: Assets/Scripts/Data/LobbyPlayer.cs(23)
-  - Text: " Eemaldada m\uFFFDngija listis\r"
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\LooseMenu.cs"
+    Line: 5
+    PathToShow: Assets/Scripts/LooseMenu.cs(5)
+  - Text: " Dubleerib klassi WinMenu ja PauseMenu meetodit\r"
     Note: 
     Tag: TODO
-    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayer.cs"
-    Line: 29
-    PathToShow: Assets/Scripts/Data/LobbyPlayer.cs(29)
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\LooseMenu.cs"
+    Line: 7
+    PathToShow: Assets/Scripts/LooseMenu.cs(7)
+  - Text: " Kui on host, siis peaks clientid droppima ja sealt edasi clienti men\uFFFD\uFFFDsse
+      edasi suunama\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\LooseMenu.cs"
+    Line: 9
+    PathToShow: Assets/Scripts/LooseMenu.cs(9)
+  - Text: " Dubleerib klassi WinMenu ja PauseMenu meetodit\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\LooseMenu.cs"
+    Line: 13
+    PathToShow: Assets/Scripts/LooseMenu.cs(13)
+  - Text: " Dubleerib klassi WinMenu ja LooseMenu meetodit\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\PauseMenu.cs"
+    Line: 39
+    PathToShow: Assets/Scripts/PauseMenu.cs(39)
+  - Text: " Kui on host, siis peaks clientid droppima ja sealt edasi clienti men\uFFFD\uFFFDsse
+      edasi suunama\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\PauseMenu.cs"
+    Line: 41
+    PathToShow: Assets/Scripts/PauseMenu.cs(41)
+  - Text: " Dubleerib klassi WinMenu ja LooseMenu meetodit\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\PauseMenu.cs"
+    Line: 45
+    PathToShow: Assets/Scripts/PauseMenu.cs(45)
+  - Text: " Ei tohiks saada avada kui m\uFFFDng on l\uFFFDbi\r"
+    Note: 
+    Tag: BUG
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\PauseMenu.cs"
+    Line: 16
+    PathToShow: Assets/Scripts/PauseMenu.cs(16)
+  - Text: " ei pane m\uFFFDngu pausile\r"
+    Note: 
+    Tag: BUG
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\PauseMenu.cs"
+    Line: 33
+    PathToShow: Assets/Scripts/PauseMenu.cs(33)
+  - Text: " Dubleerib LooseMenu classi\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\WinMenu.cs"
+    Line: 5
+    PathToShow: Assets/Scripts/WinMenu.cs(5)
+  - Text: " Dubleerib klassi PauseMenu ja LooseMenu meetodit\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\WinMenu.cs"
+    Line: 7
+    PathToShow: Assets/Scripts/WinMenu.cs(7)
+  - Text: " Kui on host, siis peaks clientid droppima ja sealt edasi clienti men\uFFFD\uFFFDsse
+      edasi suunama\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\WinMenu.cs"
+    Line: 9
+    PathToShow: Assets/Scripts/WinMenu.cs(9)
+  - Text: " Dubleerib klassi PauseMenu ja LooseMenu meetodit\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\WinMenu.cs"
+    Line: 13
+    PathToShow: Assets/Scripts/WinMenu.cs(13)
   - Text: " katki \r"
     Note: 
     Tag: BUG
     File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\UI\\LobbyUI.cs"
-    Line: 82
-    PathToShow: Assets/Scripts/UI/LobbyUI.cs(82)
+    Line: 87
+    PathToShow: Assets/Scripts/UI/LobbyUI.cs(87)
+  - Text: " Visuaalselt vaja n\uFFFDidata m\uFFFDngijat listis\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayerData.cs"
+    Line: 25
+    PathToShow: Assets/Scripts/Data/LobbyPlayerData.cs(25)
+  - Text: " Eemaldada m\uFFFDngija listis\r"
+    Note: 
+    Tag: TODO
+    File: "C:\\Users\\joose\\Documents\\\xDClikool\\Game dev\\Dungeon Master Folders\\DungeonMaster\\Assets\\Scripts\\Data\\LobbyPlayerData.cs"
+    Line: 32
+    PathToShow: Assets/Scripts/Data/LobbyPlayerData.cs(32)
   TagsList:
   - TODO
   - BUG

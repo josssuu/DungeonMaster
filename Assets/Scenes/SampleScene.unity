@@ -1879,17 +1879,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2300096626329158385, guid: 01bfb3b6db7ee51489065ca6b0af96f1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1284999165651571322, guid: 01bfb3b6db7ee51489065ca6b0af96f1, type: 3}
       propertyPath: m_Name
       value: Sawblade (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284999165651571322, guid: 01bfb3b6db7ee51489065ca6b0af96f1, type: 3}
-      propertyPath: m_TagString
-      value: Sawblade
       objectReference: {fileID: 0}
     - target: {fileID: 1284999165651571324, guid: 01bfb3b6db7ee51489065ca6b0af96f1, type: 3}
       propertyPath: m_RootOrder
@@ -8311,10 +8303,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8116224166463039808, guid: 811115c1a6b8b0947a033d343be93a37, type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116224166463039808, guid: 811115c1a6b8b0947a033d343be93a37, type: 3}
       propertyPath: winMenuUi
       value: 
       objectReference: {fileID: 1183811033}
@@ -8325,10 +8313,6 @@ PrefabInstance:
     - target: {fileID: 8116224166463039810, guid: 811115c1a6b8b0947a033d343be93a37, type: 3}
       propertyPath: m_Name
       value: SpikyBoiii
-      objectReference: {fileID: 0}
-    - target: {fileID: 8116224166463039810, guid: 811115c1a6b8b0947a033d343be93a37, type: 3}
-      propertyPath: m_TagString
-      value: Sawblade
       objectReference: {fileID: 0}
     - target: {fileID: 8116224166463039814, guid: 811115c1a6b8b0947a033d343be93a37, type: 3}
       propertyPath: m_RootOrder
@@ -21026,6 +21010,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080413583}
   m_CullTransparentMesh: 1
+--- !u!1001 &686383317404786763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.634269
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669500, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686383317648669503, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
+      propertyPath: m_Name
+      value: SpikeTrap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7c08eb7fb345ff42a52f5ca4e84f4f0, type: 3}
 --- !u!1001 &1284999165257006848
 PrefabInstance:
   m_ObjectHideFlags: 0

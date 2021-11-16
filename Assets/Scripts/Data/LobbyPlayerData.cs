@@ -6,12 +6,12 @@ using System;
 using TMPro;
 using MLAPI;
 
-public struct LobbyPlayer : INetworkSerializable
+public struct LobbyPlayerData : INetworkSerializable
 {
     public ulong ClientID;
     public GameObject PlayerInfoObject;
 
-    public LobbyPlayer(ulong clientID, GameObject playerInfoObject)
+    public LobbyPlayerData(ulong clientID, GameObject playerInfoObject)
     {
         ClientID = clientID;
         PlayerInfoObject = playerInfoObject;
@@ -22,7 +22,7 @@ public struct LobbyPlayer : INetworkSerializable
         serializer.Serialize(ref ClientID);
     }
 
-    public void UpdateDisplay(LobbyPlayer player)   // TODO Visuaalselt vaja näidata mängijat listis
+    public void UpdateDisplay(LobbyPlayerData player)   // TODO Visuaalselt vaja näidata mängijat listis
     {
         Debug.Log("Update display");
         ClientID = player.ClientID;

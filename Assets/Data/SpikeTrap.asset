@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208b9878a2e6cdd429493fe7bea66500, type: 3}
+  m_Name: SpikeTrap
+  m_EditorClassIdentifier: 
+  TrapName: Spike Trap
+  TrapSprite: {fileID: -3318316920390395118, guid: dc8e19c1f9e67e340ab36396bd87f269, type: 3}
+  TrapHealth: 100
+  TrapCost: 10
+  TrapDamage: 25

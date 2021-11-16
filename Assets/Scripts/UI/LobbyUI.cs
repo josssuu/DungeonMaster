@@ -18,7 +18,7 @@ public class LobbyUI : NetworkBehaviour
     public GameObject PlayerListPanel; 
     public Button StartButton;
 
-    private NetworkList<LobbyPlayer> lobbyPlayers = new NetworkList<LobbyPlayer>();
+    private NetworkList<LobbyPlayerData> lobbyPlayers = new NetworkList<LobbyPlayerData>();
 
     public override void NetworkStart()
     {
@@ -57,7 +57,7 @@ public class LobbyUI : NetworkBehaviour
     {
         GameObject display = Instantiate(PlayerInfoPrefab, PlayerListPanel.transform);
         display.GetComponent<NetworkObject>().SpawnWithOwnership(clientID);
-        LobbyPlayer player = new LobbyPlayer(clientID, display);
+        LobbyPlayerData player = new LobbyPlayerData(clientID, display);
         lobbyPlayers.Add(player);
     }
 
@@ -65,7 +65,7 @@ public class LobbyUI : NetworkBehaviour
     {
         for (int i = 0; i < lobbyPlayers.Count; i++)
         {
-            LobbyPlayer player = lobbyPlayers[i];
+            LobbyPlayerData player = lobbyPlayers[i];
             if (player.ClientID == clientID)
             {
                 lobbyPlayers.RemoveAt(i);
@@ -107,12 +107,12 @@ public class LobbyUI : NetworkBehaviour
         StartGameServerRpc();
     }
 
-    private void HandleLobbyPlayerStateChanged(NetworkListEvent<LobbyPlayer> changeEvent)
+    private void HandleLobbyPlayerStateChanged(NetworkListEvent<LobbyPlayerData> changeEvent)
     {
         print("HandleLobbyPlayerStateChanged");
         for (int i = 0; i < NetworkManager.Singleton.ConnectedClientsList.Count; i++)
         {
-            LobbyPlayer player = lobbyPlayers[i];
+            LobbyPlayerData player = lobbyPlayers[i];
             if (lobbyPlayers.Count > i)
             {
                 player.UpdateDisplay(player);
@@ -130,7 +130,7 @@ public class LobbyUI : NetworkBehaviour
     }
     
     [ServerRpc]
-    private void AddClientInfoDisplayServerRpc(LobbyPlayer player)
+    private void AddClientInfoDisplayServerRpc(LobbyPlayerData player)
     {
         player.UpdateDisplay(player);
     }
@@ -143,7 +143,7 @@ public class LobbyUI : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void UpdateDisplayClientRpc(LobbyPlayer player)
+    private void UpdateDisplayClientRpc(LobbyPlayerData player)
     {
         GameObject display = Instantiate(PlayerInfoPrefab, PlayerListPanel.transform);
     }
