@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
+        /*
         playerHitSound = Resources.Load<AudioClip>("death");
         sawBladeSound = Resources.Load<AudioClip>("sword-unsheathe");
         doorSound = Resources.Load<AudioClip>("door");
@@ -14,8 +15,9 @@ public class SoundManager : MonoBehaviour
         menuClickSound = Resources.Load<AudioClip>("click");
 
         _audioSource = GetComponent<AudioSource>();
+        */
     }
-
+    /*
     public static void PlaySound(string sound)
     {
         switch (sound)
@@ -39,4 +41,5 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+     */
 }

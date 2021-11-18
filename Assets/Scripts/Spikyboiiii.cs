@@ -24,7 +24,7 @@ public class Spikyboiiii : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")) return;
         if (looseMenuUi.activeSelf) return;
         if (winMenuUi.activeSelf) return;
-        SoundManager.PlaySound("playerHit");
+        //SoundManager.PlaySound("playerHit");
         looseMenuUi.SetActive(true);
     }
 }

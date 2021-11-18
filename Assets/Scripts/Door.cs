@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")) return;
         if (looseMenuUi.activeSelf) return;
         if (winMenuUi.activeSelf) return;
-        SoundManager.PlaySound("door");
+        //SoundManager.PlaySound("door");
         winMenuUi.SetActive(true);
     }
 }

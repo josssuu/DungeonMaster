@@ -25,7 +25,7 @@ public class Join : MonoBehaviour
 
     public void JoinGame()
     {
-        SoundManager.PlaySound("menuClick");
+        //SoundManager.PlaySound("menuClick");
         print(IP);
         unet.ConnectAddress = IP;
         NetworkManager.Singleton.StartClient();

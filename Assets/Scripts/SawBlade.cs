@@ -10,7 +10,7 @@ public class SawBlade : MonoBehaviour
     {
         if (transform.position.y < -13)
         {
-            SoundManager.PlaySound("sawBlade");
+            //SoundManager.PlaySound("sawBlade");
             transform.position = new Vector3(transform.position.x, 13f);
         }
     }
@@ -20,7 +20,7 @@ public class SawBlade : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")) return;
         if (looseMenuUi.activeSelf) return;
         if (winMenuUi.activeSelf) return;
-        SoundManager.PlaySound("playerHit");
+        //SoundManager.PlaySound("playerHit");
         looseMenuUi.SetActive(true);
     }
 }
