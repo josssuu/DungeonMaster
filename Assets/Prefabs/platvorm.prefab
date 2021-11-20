@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6641373544825541470}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: platvorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7705012981570015323}
   - component: {fileID: 9199195612244904477}
   - component: {fileID: 1394769377530958123}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: 5d403c2b-411a-499d-9a9a-10778dd0cfd9_scaled_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
