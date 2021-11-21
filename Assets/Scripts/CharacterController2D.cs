@@ -61,7 +61,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-    private void Update()
+	private void Update()
     {
         if(gameObject.transform.position.x > 11 | gameObject.transform.position.x < -11)
         {
