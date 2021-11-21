@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     bool moving = false;
     float horizontalMove = 0f;
     bool jump = false;
+    public bool facingRight = false;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -22,19 +23,19 @@ public class PlayerMovement : MonoBehaviour
        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         moving = false;
+       
         if (Math.Abs(horizontalMove) > float.Epsilon)
         {
-            sr.flipX = horizontalMove < 0f;
             moving = true;
         }    
         if (Input.GetButtonDown("Jump"))
         {
+            animator.SetTrigger("jump");
             jump = true;
             
         }
-        Debug.Log(horizontalMove);
         animator.SetBool("Walk", moving);
-        animator.SetBool("Jump", jump);
+        animator.SetBool("IsLanding", jump);
 
     }
     private void FixedUpdate()
@@ -44,4 +45,5 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
     }
     
+
 }
