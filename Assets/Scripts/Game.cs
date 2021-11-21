@@ -39,19 +39,21 @@ public class Game : MonoBehaviour {
 	void Update () {
         
         {
+            Speed = Speed + Time.deltaTime *1.01f;
+            BlockDistance = Random.RandomRange(5f, 15f);
 
             foreach (GameObject tree in _trees)
             {
                 tree.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
                 
-                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2f))
+                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
                 {
                     
 
                     ScoreScript.scoreValue += 1;
 
                 }
-                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2f))
+                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
                 {
                     tree.transform.position += new Vector3(TreeDistance * _trees.Count, 0f, 0f);
                 }
@@ -59,8 +61,8 @@ public class Game : MonoBehaviour {
             
             foreach (GameObject block in _blocks)
             {
-                block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
-                if (block.transform.position.x < -BlockDistance * (_blocks.Count / 2f))
+                block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f); 
+                if (block.transform.position.x < -BlockDistance * (_blocks.Count / 2.5f))
                 {
                     block.transform.position += new Vector3(BlockDistance * _blocks.Count, 0f, 0f);
                 }

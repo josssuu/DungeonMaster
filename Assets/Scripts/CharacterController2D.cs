@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -60,8 +61,18 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+    private void Update()
+    {
+        if(gameObject.transform.position.x > 11 | gameObject.transform.position.x < -11)
+        {
+			SceneManager.LoadScene("MainMenu");
+			//Application.Quit();
+			//UnityEditor.EditorApplication.isPlaying = false;
+		}
+    }
 
-	public void Move(float move, bool crouch, bool jump)
+
+    public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
