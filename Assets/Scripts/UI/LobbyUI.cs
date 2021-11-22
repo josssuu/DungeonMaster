@@ -14,6 +14,8 @@ using MLAPI.Spawning;
 
 public class LobbyUI : NetworkBehaviour
 {
+
+    public GameObject PlayerPrefab;
     public GameObject PlayerInfoPrefab;
     public GameObject PlayerListPanel; 
     public Button StartButton;
@@ -74,9 +76,15 @@ public class LobbyUI : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    private void StartGameServerRpc(ServerRpcParams serverRpcParams = default)
+    private void StartGameServerRpc(ServerRpcParams serverRpcParams = default)  // TODO Player spawning on valel hetkel, kuskile peaks tegema eventlisteneri
     {
         print("(ServerRpc) Start Game");
+        for (int i = 0; i < lobbyPlayers.Count; i++)
+        {
+            LobbyPlayerData playerData = lobbyPlayers[i];
+            GameObject player = Instantiate(PlayerPrefab);
+            player.GetComponent<NetworkObject>().SpawnWithOwnership(playerData.ClientID);
+        }
         NetworkSceneManager.SwitchScene("SampleScene");
     }
 

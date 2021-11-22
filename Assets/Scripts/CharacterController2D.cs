@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using MLAPI;
+using MLAPI.SceneManagement;
+using MLAPI.Messaging;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -24,6 +27,9 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true; // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
 
+    public static int AlivePlayers = 0;
+    private bool SwitchDone = false;
+
     [Header("Events")] [Space] public UnityEvent OnLandEvent;
 
     [Serializable]
@@ -42,6 +48,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void Awake()
     {
+        AlivePlayers = NetworkManager.Singleton.ConnectedClients.Count;
+
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -74,10 +82,49 @@ public class CharacterController2D : MonoBehaviour
     {
         if (gameObject.transform.position.x > 11 | gameObject.transform.position.x < -11)
         {
-            SceneManager.LoadScene("MainMenu");
+            //Destroy(gameObject.transform);
+            //gameObject.SetActive(false);
+            //AlivePlayers--;
+            //SceneManager.LoadScene("Lobby");
+            //if (NetworkManager.Singleton.IsClient) GoToLobbyClientRpc();
+            //if (NetworkManager.Singleton.IsHost) GoToLobbyServerRpc();
+            //if (NetworkManager.Singleton.IsHost) GoToLobbyServerRpc();
+
+            GoToLobbyServerRpc();
+
+            //NetworkSceneManager.SwitchScene("Lobby");
+            //SceneManager.LoadScene("Lobby");
             //Application.Quit();
             //UnityEditor.EditorApplication.isPlaying = false;
         }
+        /*
+        if (AlivePlayers == 0 && NetworkManager.Singleton.IsHost)
+        {
+            SceneManager.LoadScene("MainMenu");
+            if (NetworkManager.Singleton.IsClient) NetworkManager.Singleton.StopClient();
+            if (NetworkManager.Singleton.IsHost) NetworkManager.Singleton.StopHost();
+        }
+        */
+    }
+
+    [ServerRpc(RequireOwnership = true)]
+    private void GoToLobbyServerRpc()
+    {
+        if (SwitchDone) return;
+        SwitchDone = true;
+        NetworkSceneManager.SwitchScene("Lobby");
+        /*
+        for (int i = 0; i < NetworkManager.Singleton.ConnectedClients.Count; i++)
+        {
+            ulong clientID = NetworkManager.Singleton.ConnectedClientsList[i].ClientId;
+        }
+        */
+    }
+
+    [ClientRpc]
+    private void GoToLobbyClientRpc()
+    {
+        GoToLobbyServerRpc();
     }
 
 

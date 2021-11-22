@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using MLAPI;
 
-public class Game : MonoBehaviour
+public class Game : NetworkBehaviour
 {
     public static Game Instance;
 
@@ -29,6 +30,8 @@ public class Game : MonoBehaviour
         {
             GameObject tree = Instantiate(TreePrefab);
             GameObject block = Instantiate(BlockPrefab);
+            //tree.GetComponent<NetworkObject>().Spawn();
+            //block.GetComponent<NetworkObject>().Spawn();
             _trees.Add(tree);
             _blocks.Add(block);
 
@@ -40,6 +43,8 @@ public class Game : MonoBehaviour
             if (i == 4 | i == 14)
             {
                 GameObject upgrade = Instantiate(Upgrade);
+                //upgrade.GetComponent<NetworkObject>().Spawn();
+
                 _blocks.Add(upgrade);
                 upgrade.transform.position = new Vector3(UpgradeDistance * i * 3f, Random.Range(-4f, -1.2f), 0);
             }
@@ -93,16 +98,19 @@ public class Game : MonoBehaviour
         ScoreScript.scoreValue = 0;
         foreach (GameObject tree in _trees)
         {
+            //tree.GetComponent<NetworkObject>().Despawn(true);
             Destroy(tree);
         }
 
         foreach (GameObject block in _blocks)
         {
+            //block.GetComponent<NetworkObject>().Despawn(true);
             Destroy(block);
         }
 
         foreach (GameObject upgrade in _upgrades)
         {
+            //upgrade.GetComponent<NetworkObject>().Despawn(true);
             Destroy(upgrade);
         }
 
