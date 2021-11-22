@@ -1,93 +1,115 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class Game : MonoBehaviour {
-
+public class Game : MonoBehaviour
+{
     public static Game Instance;
 
     public GameObject TreePrefab;
     public GameObject BlockPrefab;
-    public float TreeDistance = 1f; 
+    public GameObject Upgrade;
+    public float TreeDistance = 1f;
     public float BlockDistance = 1f;
+    public float UpgradeDistance = 1f;
 
     public float Speed = 1f;
     private List<GameObject> _trees;
     private List<GameObject> _blocks;
+    private List<GameObject> _upgrades;
     private bool _stop;
 
-	void Start () {
-        
+    void Start()
+    {
         _stop = false;
         Instance = this;
         _trees = new List<GameObject>();
         _blocks = new List<GameObject>();
-        for (int i = 0; i < 12; i++)
+        _upgrades = new List<GameObject>();
+        for (int i = 0; i < 16; i++)
         {
-            GameObject tree = GameObject.Instantiate(TreePrefab);
-            GameObject block = GameObject.Instantiate(BlockPrefab);
+            GameObject tree = Instantiate(TreePrefab);
+            GameObject block = Instantiate(BlockPrefab);
             _trees.Add(tree);
             _blocks.Add(block);
 
-            tree.transform.position = new Vector3(TreeDistance*i, -4.8f, 0f);
+            tree.transform.position = new Vector3(TreeDistance * i, -4.8f, 0f);
             tree.transform.rotation = Quaternion.Euler(0, 0, 90);
 
             block.transform.position = new Vector3(BlockDistance * i, Random.Range(-4.8f, 0f), 0);
+
+            if (i == 4 | i == 14)
+            {
+                GameObject upgrade = Instantiate(Upgrade);
+                _blocks.Add(upgrade);
+                upgrade.transform.position = new Vector3(UpgradeDistance * i * 3f, Random.Range(-4f, -1.2f), 0);
+            }
         }
     }
-	
-	void Update () {
-        
+
+    void Update()
+    {
         {
-            Speed = Speed + Time.deltaTime *1.01f;
-            BlockDistance = Random.RandomRange(5f, 15f);
+            Speed += Time.deltaTime * 1.01f;
+            BlockDistance = Random.Range(5f, 15f);
+            UpgradeDistance = Random.Range(5f, 15f);
 
             foreach (GameObject tree in _trees)
             {
                 tree.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
-                
+
                 if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
                 {
-                    
-
                     ScoreScript.scoreValue += 1;
-
                 }
+
                 if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
                 {
                     tree.transform.position += new Vector3(TreeDistance * _trees.Count, 0f, 0f);
                 }
             }
-            
+
             foreach (GameObject block in _blocks)
             {
-                block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f); 
+                block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
                 if (block.transform.position.x < -BlockDistance * (_blocks.Count / 2.5f))
                 {
                     block.transform.position += new Vector3(BlockDistance * _blocks.Count, 0f, 0f);
                 }
             }
-            
+
+            foreach (GameObject upgrade in _upgrades)
+            {
+                upgrade.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
+                if (upgrade.transform.position.x < -UpgradeDistance * (_upgrades.Count / 2.5f))
+                {
+                    upgrade.transform.position += new Vector3(UpgradeDistance * _upgrades.Count, 0f, 0f);
+                }
+            }
         }
-	}
+    }
 
     public void Restart()
     {
         ScoreScript.scoreValue = 0;
         foreach (GameObject tree in _trees)
         {
-            GameObject.Destroy(tree);
-            
+            Destroy(tree);
         }
+
         foreach (GameObject block in _blocks)
         {
-            GameObject.Destroy(block);
-
+            Destroy(block);
         }
+
+        foreach (GameObject upgrade in _upgrades)
+        {
+            Destroy(upgrade);
+        }
+
         Start();
     }
-    
-    
+
+
     public void StopGame()
     {
         _stop = true;

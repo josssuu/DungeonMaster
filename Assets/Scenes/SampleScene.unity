@@ -264,8 +264,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TreePrefab: {fileID: 2187735136015880310, guid: 2add005b5763a4d4c8f5eaaa0a786c6c, type: 3}
   BlockPrefab: {fileID: 4044240440832582551, guid: 181c21e0f974f5a4c97bde47cd4cceaf, type: 3}
+  Upgrade: {fileID: 3738403608412011202, guid: d361fc4eec7764430a805ee4b7036d75, type: 3}
   TreeDistance: 2
   BlockDistance: 7
+  UpgradeDistance: 1
   Speed: 1
 --- !u!20 &519420031
 Camera:
@@ -564,7 +566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4880970079420251231
 PrefabInstance:
@@ -611,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4880970079151313517, guid: 1b3b5ac2d8fe1dd4d8cd41ffdc1737a4, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4880970079151313517, guid: 1b3b5ac2d8fe1dd4d8cd41ffdc1737a4, type: 3}
       propertyPath: m_LocalPosition.x
