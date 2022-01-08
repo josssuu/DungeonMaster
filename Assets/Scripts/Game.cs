@@ -38,7 +38,7 @@ public class Game : NetworkBehaviour
             tree.transform.position = new Vector3(TreeDistance * i, -4.8f, 0f);
             tree.transform.rotation = Quaternion.Euler(0, 0, 90);
 
-            block.transform.position = new Vector3(BlockDistance * i, Random.Range(-4.8f, 0f), 0);
+            block.transform.position = new Vector3(BlockDistance * i, Random.Range(-4.6f, 0.2f), 0);
 
             if (i == 4 | i == 14)
             {
@@ -54,7 +54,7 @@ public class Game : NetworkBehaviour
     void Update()
     {
         {
-            Speed += Time.deltaTime * 1.01f;
+            Speed += Time.deltaTime * 0.2f;
             BlockDistance = Random.Range(5f, 15f);
             UpgradeDistance = Random.Range(5f, 15f);
 

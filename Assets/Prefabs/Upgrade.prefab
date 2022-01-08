@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 816094514214791149}
   - component: {fileID: 4495047886341905048}
-  - component: {fileID: 442224147652400998}
   - component: {fileID: 4572080708653780526}
+  - component: {fileID: 763500973593043844}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &442224147652400998
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3738403608412011202}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.21, y: 5.12}
-    newSize: {x: 0.95, y: 1.68}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.95, y: 1.68}
-  m_EdgeRadius: 0
 --- !u!114 &4572080708653780526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +99,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeType: 1
   newSprite: {fileID: 21300000, guid: f68f15dfddb8a446aabef5ec1c90a7c9, type: 3}
+--- !u!58 &763500973593043844
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738403608412011202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.805

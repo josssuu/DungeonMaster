@@ -268,7 +268,7 @@ MonoBehaviour:
   TreeDistance: 2
   BlockDistance: 7
   UpgradeDistance: 1
-  Speed: 1
+  Speed: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

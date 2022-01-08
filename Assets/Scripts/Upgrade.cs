@@ -23,11 +23,12 @@ public class Upgrade : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Warrior_Sheet-Effect_0")
+        if (collision.gameObject.name == "Warrior_Sheet-Effect_0(Clone)")
         {
             if (UpgradeType == UpgradeType.JumpHeightUpgrade)
-                collision.gameObject.GetComponent<CharacterController2D>().m_JumpForce += 100f;
-            collision.gameObject.GetComponent<PlayerMovement>().runSpeed += 10f;
+                collision.gameObject.GetComponent<CharacterController2D>().m_JumpForce = 50f;
+            else if (UpgradeType == UpgradeType.MovementSpeedUpgrade)
+                collision.gameObject.GetComponent<PlayerMovement>().runSpeed = 15f;
             gameObject.SetActive(false);
         }
     }

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     bool moving = false;
     float horizontalMove = 0f;
     bool jump = false;
+    bool crouch = false;
     public bool facingRight = false;
 
     public float runSpeed
@@ -30,9 +31,7 @@ public class PlayerMovement : MonoBehaviour
         moving = false;
 
         if (Math.Abs(horizontalMove) > float.Epsilon)
-        {
             moving = true;
-        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -40,13 +39,36 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
         }
 
+        if (Input.GetButtonDown("Crouch"))
+        {
+            if (horizontalMove > 0.01)
+                animator.SetTrigger("Slide");
+            else
+                animator.SetTrigger("Crouch");
+
+            crouch = true;
+        }
+        else if (Input.GetButtonUp("Crouch"))
+            crouch = false;
+
         animator.SetBool("Walk", moving);
         animator.SetBool("IsLanding", jump);
     }
 
+    public void OnLanding()
+    {
+        jump = false;
+        animator.SetBool("IsLanding", false);
+    }
+
+    public void OnCrouching(bool isCrouching)
+    {
+        animator.SetBool("IsCrouching", isCrouching);
+    }
+
     private void FixedUpdate()
     {
-        controller2D.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller2D.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
 }
