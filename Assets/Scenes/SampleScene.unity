@@ -264,10 +264,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TreePrefab: {fileID: 2187735136015880310, guid: 2add005b5763a4d4c8f5eaaa0a786c6c, type: 3}
   BlockPrefab: {fileID: 4044240440832582551, guid: 181c21e0f974f5a4c97bde47cd4cceaf, type: 3}
-  Upgrade: {fileID: 3738403608412011202, guid: d361fc4eec7764430a805ee4b7036d75, type: 3}
+  SpeedUpgrade: {fileID: 3738403608412011202, guid: d361fc4eec7764430a805ee4b7036d75, type: 3}
+  JumpUpgrade: {fileID: 3738403608412011202, guid: 5e6734951644c9d43aa6fdc16449e9f1, type: 3}
   TreeDistance: 2
   BlockDistance: 7
   UpgradeDistance: 1
+  UpgradeDistance2: 1
   Speed: 2
 --- !u!20 &519420031
 Camera:
