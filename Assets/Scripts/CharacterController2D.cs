@@ -1,10 +1,9 @@
 using System;
+using MLAPI;
+using MLAPI.Messaging;
+using MLAPI.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
-using MLAPI;
-using MLAPI.SceneManagement;
-using MLAPI.Messaging;
 
 public class CharacterController2D : MonoBehaviour
 {

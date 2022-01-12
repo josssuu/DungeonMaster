@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using MLAPI;
-using TMPro;
 using MLAPI.Transports.UNET;
-using MLAPI.SceneManagement;
+using TMPro;
+using UnityEngine;
 
 public class Join : MonoBehaviour
 {
@@ -15,7 +12,6 @@ public class Join : MonoBehaviour
     private void Awake()
     {
         unet = NetworkManager.Singleton.GetComponent<UNetTransport>();
-
     }
 
     public void IPChanged(string newIP)
@@ -41,5 +37,10 @@ public class Join : MonoBehaviour
             NetworkManager.Singleton.StopClient();
         }*/
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Back()
+    {
+        SoundManager.PlaySound("menuClick");
     }
 }

@@ -1,8 +1,6 @@
-using TMPro;
-using UnityEngine;
 using MLAPI;
 using MLAPI.SceneManagement;
-
+using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +10,11 @@ public class MainMenu : MonoBehaviour
         NetworkManager.Singleton.StartHost();
         NetworkSceneManager.SwitchScene("Lobby");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void JoinGame()
+    {
+        SoundManager.PlaySound("menuClick");
     }
 
     public void QuitGame()

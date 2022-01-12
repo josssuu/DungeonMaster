@@ -32,7 +32,7 @@ public class Game : NetworkBehaviour
         _blocks = new List<GameObject>();
         _upgrades = new List<GameObject>();
         _upgradesJump = new List<GameObject>();
-        for (int i = 0; i < 16; i++)
+        for (int i = 0; i <= 16; i++)
         {
             BoxCollider2D BackgroundColliderl = Background.GetComponent<BoxCollider2D>();
             Rigidbody2D BackGroundRigidBody2D = Background.GetComponent<Rigidbody2D>();
@@ -52,78 +52,77 @@ public class Game : NetworkBehaviour
 
             if (i == 4 | i == 14)
             {
-                
                 GameObject upgrade = Instantiate(SpeedUpgrade);
                 //upgrade.GetComponent<NetworkObject>().Spawn();
 
                 _blocks.Add(upgrade);
                 upgrade.transform.position = new Vector3(UpgradeDistance * i * 3f, Random.Range(-4f, -1.2f), 0);
             }
-            if(i==6|| i == 16)
+
+            if (i == 6 || i == 16)
             {
                 GameObject jump = Instantiate(JumpUpgrade);
                 _blocks.Add(jump);
                 jump.transform.position = new Vector3(UpgradeDistance2 * i * 3f, Random.Range(-4f, -1.2f), 0);
-
             }
         }
     }
 
     void Update()
     {
-        if(Background.transform.position.x < -width)
+        if (Background.transform.position.x < -width)
         {
             Reposition();
         }
-        
-            Speed += Time.deltaTime * 0.2f;
-            BlockDistance = Random.Range(5f, 15f);
-            UpgradeDistance = Random.Range(5f, 15f);
-            UpgradeDistance2 = Random.Range(4f, 16f);
-            Vector2 backgroundOffset = new Vector2(Time.deltaTime * Speed, 0);
-            
-            
-            foreach (GameObject tree in _trees)
+
+        Speed += Time.deltaTime * 0.2f;
+        BlockDistance = Random.Range(5f, 15f);
+        UpgradeDistance = Random.Range(5f, 15f);
+        UpgradeDistance2 = Random.Range(4f, 16f);
+        Vector2 backgroundOffset = new Vector2(Time.deltaTime * Speed, 0);
+
+
+        foreach (GameObject tree in _trees)
+        {
+            tree.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
+
+            if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
             {
-                tree.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
-
-                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
-                {
-                    ScoreScript.scoreValue += 1;
-                }
-
-                if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
-                {
-                    tree.transform.position += new Vector3(TreeDistance * _trees.Count, 0f, 0f);
-                }
+                ScoreScript.scoreValue += 1;
             }
 
-            foreach (GameObject block in _blocks)
+            if (tree.transform.position.x < -TreeDistance * (_trees.Count / 2.5f))
             {
-                block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
-                if (block.transform.position.x < -BlockDistance * (_blocks.Count / 2.5f))
-                {
-                    block.transform.position += new Vector3(BlockDistance * _blocks.Count, 0f, 0f);
-                }
+                tree.transform.position += new Vector3(TreeDistance * _trees.Count, 0f, 0f);
             }
+        }
 
-            foreach (GameObject upgrade in _upgrades)
+        foreach (GameObject block in _blocks)
+        {
+            block.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
+            if (block.transform.position.x < -BlockDistance * (_blocks.Count / 2.5f))
             {
-                upgrade.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
-                if (upgrade.transform.position.x < -UpgradeDistance * (_upgrades.Count / 2.5f))
-                {
-                    upgrade.transform.position += new Vector3(UpgradeDistance * _upgrades.Count, 0f, 0f);
-                }
+                block.transform.position += new Vector3(BlockDistance * _blocks.Count, 0f, 0f);
             }
-            foreach (GameObject jump in _upgradesJump)
+        }
+
+        foreach (GameObject upgrade in _upgrades)
+        {
+            upgrade.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
+            if (upgrade.transform.position.x < -UpgradeDistance * (_upgrades.Count / 2.5f))
             {
-                jump.transform.position -= new Vector3(Time.deltaTime * Speed, 1f, 1f);
-                if (jump.transform.position.x < -UpgradeDistance2 * (_upgradesJump.Count / 2.5f))
-                {
-                    jump.transform.position += new Vector3(UpgradeDistance2 * _upgradesJump.Count, 1f, 1f);
-                }
+                upgrade.transform.position += new Vector3(UpgradeDistance * _upgrades.Count, 0f, 0f);
             }
-        
+        }
+
+        foreach (GameObject jump in _upgradesJump)
+        {
+            jump.transform.position -= new Vector3(Time.deltaTime * Speed, 1f, 1f);
+            if (jump.transform.position.x < -UpgradeDistance2 * (_upgradesJump.Count / 2.5f))
+            {
+                jump.transform.position += new Vector3(UpgradeDistance2 * _upgradesJump.Count, 1f, 1f);
+            }
+        }
     }
 
     public void Restart()
@@ -146,6 +145,7 @@ public class Game : NetworkBehaviour
             //upgrade.GetComponent<NetworkObject>().Despawn(true);
             Destroy(upgrade);
         }
+
         foreach (GameObject upgrade in _upgradesJump)
         {
             //upgrade.GetComponent<NetworkObject>().Despawn(true);
@@ -154,10 +154,11 @@ public class Game : NetworkBehaviour
 
         Start();
     }
+
     private void Reposition()
     {
         Vector2 vector = new Vector2(width * 2f, 0);
-        Background.transform.position = (Vector2)transform.position + vector;
+        Background.transform.position = (Vector2) transform.position + vector;
     }
 
 
