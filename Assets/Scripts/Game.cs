@@ -10,6 +10,7 @@ public class Game : NetworkBehaviour
     public GameObject BlockPrefab;
     public GameObject SpeedUpgrade;
     public GameObject JumpUpgrade;
+    public GameObject Background;
     public float TreeDistance = 1f;
     public float BlockDistance = 1f;
     public float UpgradeDistance = 1f;
@@ -21,6 +22,7 @@ public class Game : NetworkBehaviour
     private List<GameObject> _upgrades;
     private List<GameObject> _upgradesJump;
     private bool _stop;
+    private float width;
 
     void Start()
     {
@@ -32,6 +34,10 @@ public class Game : NetworkBehaviour
         _upgradesJump = new List<GameObject>();
         for (int i = 0; i < 16; i++)
         {
+            BoxCollider2D BackgroundColliderl = Background.GetComponent<BoxCollider2D>();
+            Rigidbody2D BackGroundRigidBody2D = Background.GetComponent<Rigidbody2D>();
+            width = BackgroundColliderl.size.x;
+            BackGroundRigidBody2D.velocity = new Vector2(-Speed, 0);
             GameObject tree = Instantiate(TreePrefab);
             GameObject block = Instantiate(BlockPrefab);
             //tree.GetComponent<NetworkObject>().Spawn();
@@ -65,12 +71,18 @@ public class Game : NetworkBehaviour
 
     void Update()
     {
+        if(Background.transform.position.x < -width)
         {
+            Reposition();
+        }
+        
             Speed += Time.deltaTime * 0.2f;
             BlockDistance = Random.Range(5f, 15f);
             UpgradeDistance = Random.Range(5f, 15f);
             UpgradeDistance2 = Random.Range(4f, 16f);
-
+            Vector2 backgroundOffset = new Vector2(Time.deltaTime * Speed, 0);
+            
+            
             foreach (GameObject tree in _trees)
             {
                 tree.transform.position -= new Vector3(Time.deltaTime * Speed, 0f, 0f);
@@ -111,7 +123,7 @@ public class Game : NetworkBehaviour
                     jump.transform.position += new Vector3(UpgradeDistance2 * _upgradesJump.Count, 1f, 1f);
                 }
             }
-        }
+        
     }
 
     public void Restart()
@@ -141,6 +153,11 @@ public class Game : NetworkBehaviour
         }
 
         Start();
+    }
+    private void Reposition()
+    {
+        Vector2 vector = new Vector2(width * 2f, 0);
+        Background.transform.position = (Vector2)transform.position + vector;
     }
 
 
