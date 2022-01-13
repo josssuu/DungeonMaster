@@ -34,10 +34,11 @@ public class Game : NetworkBehaviour
         _upgradesJump = new List<GameObject>();
         for (int i = 0; i <= 16; i++)
         {
-            BoxCollider2D BackgroundColliderl = Background.GetComponent<BoxCollider2D>();
-            Rigidbody2D BackGroundRigidBody2D = Background.GetComponent<Rigidbody2D>();
-            width = BackgroundColliderl.size.x;
-            BackGroundRigidBody2D.velocity = new Vector2(-Speed, 0);
+            //BoxCollider2D BackgroundColliderl = Background.GetComponent<BoxCollider2D>();
+            //Rigidbody2D BackGroundRigidBody2D = Background.GetComponent<Rigidbody2D>();
+            width = 0;
+            //width = BackgroundColliderl.size.x;
+            //BackGroundRigidBody2D.velocity = new Vector2(-Speed, 0);
             GameObject tree = Instantiate(TreePrefab);
             GameObject block = Instantiate(BlockPrefab);
             //tree.GetComponent<NetworkObject>().Spawn();
