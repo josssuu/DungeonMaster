@@ -22,6 +22,12 @@ public class LobbyUI : NetworkBehaviour
 
     private NetworkList<LobbyPlayerData> lobbyPlayers = new NetworkList<LobbyPlayerData>();
 
+    void Start()
+    {
+        if(GameObject.FindGameObjectsWithTag("SceneMusic").Length > 0)
+            GameObject.FindGameObjectWithTag("SceneMusic").GetComponent<SceneMusic>().StopMusic();
+    }
+
     public override void NetworkStart()
     {
         print(GetComponent<NetworkObject>().IsSpawned);

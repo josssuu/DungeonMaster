@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        // GameObject.FindGameObjectWithTag("SceneMusic").GetComponent<SceneMusic>().StopMusic();
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<MenuMusic>().PlayMusic();
+    }
+    
     public void HostGame()
     {
         SoundManager.PlaySound("menuClick");

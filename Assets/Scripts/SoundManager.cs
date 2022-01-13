@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip playerHitSound, sawBladeSound, doorSound, footstepsSound, menuClickSound, jumpland, slide;
+    public static AudioClip playerHitSound,
+        sawBladeSound,
+        doorSound,
+        footstepsSound,
+        menuClickSound,
+        jumpland,
+        slide,
+        glass_breaking;
+
     private static AudioSource _audioSource;
 
     void Start()
@@ -14,6 +22,7 @@ public class SoundManager : MonoBehaviour
         menuClickSound = Resources.Load<AudioClip>("click");
         jumpland = Resources.Load<AudioClip>("jumpland");
         slide = Resources.Load<AudioClip>("slide");
+        glass_breaking = Resources.Load<AudioClip>("glass_breaking");
 
         _audioSource = GetComponent<AudioSource>();
     }
@@ -36,15 +45,19 @@ public class SoundManager : MonoBehaviour
                 _audioSource.PlayOneShot(footstepsSound);
                 break;
             case "menuClick":
-                _audioSource.volume = 1.0f;
-                _audioSource.PlayOneShot(menuClickSound);
+                _audioSource.volume = 10.0f;
+                _audioSource.PlayOneShot(menuClickSound, 1.0f);
                 break;
             case "jumpland":
                 _audioSource.PlayOneShot(jumpland);
                 break;
             case "slide":
                 _audioSource.volume = 1.0f;
-                _audioSource.PlayOneShot(slide);
+                _audioSource.PlayOneShot(slide, 0.3f);
+                break;
+            case "glass_breaking":
+                _audioSource.volume = 0.3f;
+                _audioSource.PlayOneShot(glass_breaking, 0.3f);
                 break;
         }
     }

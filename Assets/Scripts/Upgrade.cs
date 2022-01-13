@@ -25,6 +25,7 @@ public class Upgrade : MonoBehaviour
     {
         if (collision.gameObject.name == "Warrior_Sheet-Effect_0(Clone)")
         {
+            SoundManager.PlaySound("glass_breaking");
             if (UpgradeType == UpgradeType.JumpHeightUpgrade)
                 collision.gameObject.GetComponent<CharacterController2D>().m_JumpForce = 50f;
             else if (UpgradeType == UpgradeType.MovementSpeedUpgrade)

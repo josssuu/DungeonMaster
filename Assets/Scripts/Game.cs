@@ -26,6 +26,9 @@ public class Game : NetworkBehaviour
 
     void Start()
     {
+        GameObject.FindGameObjectWithTag("MenuMusic").GetComponent<MenuMusic>().StopMusic();
+        GameObject.FindGameObjectWithTag("SceneMusic").GetComponent<SceneMusic>().PlayMusic();
+        
         _stop = false;
         Instance = this;
         _trees = new List<GameObject>();
